@@ -10,6 +10,21 @@ import ProductsItem from "./filters/ProductsItem/ProductsItem";
 import Loader from "../../UI/Loader/Loader";
 import { useData } from "../../../context/DataContext";
 
+const normalizeSearchText = (str = "") =>
+  str
+    .replace(/[\u0430\u03B1]/g, "а")
+    .replace(/[\u0435\u03B5]/g, "е")
+    .replace(/[\u043E\u03BF]/g, "о")
+    .replace(/[\u0440\u03C1]/g, "р")
+    .replace(/[\u0441\u03C3]/g, "с")
+    .replace(/[\u0445\u03C7]/g, "х")
+    .replace(/[\u0443\u03C5]/g, "у")
+    .replace(/[\u0456\u0069]/g, "і")
+    .replace(/\u00AD/g, "")
+    .normalize("NFKC")
+    .trim()
+    .toLowerCase();
+
 const ProductsList = () => {
   const {
     products,
@@ -69,9 +84,9 @@ const ProductsList = () => {
       typeof val === "string" ? val.trim().toLowerCase() : "";
 
     const filtered = products.filter((product) => {
-      const matchesSearchTerm = product.name
-        .toLowerCase()
-        .includes(searchTerm.toLowerCase());
+      const matchesSearchTerm = normalizeSearchText(product.name).includes(
+        normalizeSearchText(searchTerm)
+      );
 
       const matchesBrand =
         selectedBrand && selectedBrand !== "Бренд"
