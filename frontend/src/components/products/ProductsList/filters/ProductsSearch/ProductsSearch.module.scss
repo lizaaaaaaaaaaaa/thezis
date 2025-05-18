@@ -1,0 +1,32 @@
+.products__search {
+  width: 250px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #272727;
+  transition: 0.3s;
+
+  &:focus {
+    width: 400px;
+    transition: 0.3s;
+
+    @media screen and (max-width: 560px) {
+      width: 100%;
+    }
+
+    &::placeholder {
+      opacity: 0;
+      transition: 0.3s;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    width: 100%;
+  }
+
+  &::placeholder {
+    color: #ccc;
+    opacity: 1;
+    font-style: italic;
+    font-weight: 300;
+    transition: 0.3s;
+  }
+}

@@ -1,0 +1,49 @@
+.dropdown {
+  position: relative;
+  width: 100%;
+}
+.toggle {
+  border: 1px solid #84aaea;
+  border-radius: 0;
+  background: #fff;
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.arrow {
+  margin-left: 8px;
+  color: #84aaea;
+}
+.menu {
+  position: absolute;
+  top: calc(100% - 1px);
+  left: 0;
+  right: 0;
+  border: 1px solid #84aaea;
+  border-radius: 0;
+  background: #fff;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #fff;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #84aaea;
+  }
+}
+.item {
+  padding: 8px;
+  cursor: pointer;
+}
+.item:hover {
+  background: #f2f2f2;
+}

@@ -1,0 +1,42 @@
+.ingredient {
+  &__item {
+    border: 1px solid #ccc;
+    padding: 20px;
+
+    @media screen and (max-width: 560px) {
+      padding: 14px;
+    }
+
+    & > h4 {
+      font-size: 32px;
+      font-weight: 600;
+      padding-bottom: 20px;
+
+      @media screen and (max-width: 560px) {
+        font-size: 24px;
+      }
+    }
+  }
+
+  &__details {
+    display: flex;
+    text-align: center;
+    gap: 0 10px;
+    margin-bottom: 10px;
+  }
+
+  &__functions {
+    margin-bottom: 10px;
+    font-weight: 600;
+
+    span {
+      &::after {
+        content: ", ";
+      }
+
+      &:last-child::after {
+        content: none;
+      }
+    }
+  }
+}

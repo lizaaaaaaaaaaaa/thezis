@@ -1,0 +1,21 @@
+.profile {
+  &__links {
+    padding: 45px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px 0;
+
+    @media screen and (max-width: 480px) {
+      padding: 25px 0;
+    }
+  }
+
+  &__link {
+    color: #84aaea;
+    font-weight: 500;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

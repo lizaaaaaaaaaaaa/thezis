@@ -1,0 +1,99 @@
+.dashboard {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 12px 0 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @media screen and (max-width: 600px) {
+    padding: 12px 0 26px;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 36px;
+    text-transform: uppercase;
+    padding-bottom: 0;
+
+    @media screen and (max-width: 768px) {
+      font-size: 28px;
+    }
+
+    @media screen and (max-width: 560px) {
+      font-size: 24px;
+    }
+
+    @media screen and (max-width: 480px) {
+      font-size: 22px;
+    }
+
+    @media screen and (max-width: 375px) {
+      font-size: 18px;
+    }
+  }
+
+  .stat-section {
+    padding: 12px 16px;
+    transition: background-color 0.3s ease;
+    border: 1px solid #84aaea;
+
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+
+      h3 {
+        font-size: 24px;
+        font-weight: 500;
+        padding-bottom: 0;
+
+        @media screen and (max-width: 600px) {
+          font-size: 20px;
+        }
+
+        @media screen and (max-width: 375px) {
+          font-size: 16px;
+        }
+      }
+
+      .arrow {
+        width: 24px;
+        height: 24px;
+        transition: transform 0.3s ease;
+
+        @media screen and (max-width: 480px) {
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+      &.open .arrow {
+        transform: rotate(180deg);
+      }
+    }
+
+    &__content {
+      margin-top: 15px;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    &__content.closed {
+      max-height: 0;
+      margin-top: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    ol {
+      list-style: revert;
+      padding-left: 35px;
+
+      li {
+        padding: 5px 0;
+      }
+    }
+  }
+}

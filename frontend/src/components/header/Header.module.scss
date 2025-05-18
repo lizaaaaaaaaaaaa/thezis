@@ -1,0 +1,173 @@
+.header {
+  background-color: #84aaea;
+  padding: 10px 0;
+  color: #ffffff;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  position: relative;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: 0 35px;
+
+    @media screen and (max-width: 480px) {
+      gap: 0 15px;
+    }
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: 0 35px;
+
+    @media screen and (max-width: 790px) {
+      position: absolute;
+      right: 10px;
+      top: -300%;
+      flex-direction: column;
+      gap: 20px 0;
+      color: #84aaea;
+      background-color: #ffffff;
+      padding: 25px 25px;
+      align-items: start;
+      transition: 0.3s;
+      box-shadow: 0px 2px 5px rgba(132, 169, 234, 0.4196078431);
+      z-index: 100;
+      border: 1px solid #84aaea;
+
+      &-show {
+        top: 70px;
+        transition: 0.3s;
+      }
+    }
+  }
+
+  &__link {
+    font-size: 20px;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      background-color: #ffffff;
+      width: 0;
+      height: 2px;
+      bottom: -2px;
+      transition: 0.3s;
+
+      @media screen and (max-width: 790px) {
+        background-color: #84aaea;
+      }
+    }
+
+    &:hover {
+      &::after {
+        text-decoration: underline;
+        transition: 0.3s;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0 10px;
+
+  img {
+    width: 60px;
+    height: 60px;
+
+    @media screen and (max-width: 480px) {
+      width: 45px;
+      height: 45px;
+    }
+  }
+
+  h4 {
+    font-size: 24px;
+
+    @media screen and (max-width: 480px) {
+      font-size: 18px;
+    }
+  }
+}
+
+.header {
+  &__icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  &__user {
+    position: relative;
+    z-index: 10;
+
+    & > div:first-of-type {
+      width: 368px;
+      position: absolute;
+      right: 20px;
+      padding: 15px 20px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid #84aaea;
+      display: grid;
+      gap: 20px 0;
+
+      @media screen and (max-width: 789px) {
+        right: -55px;
+      }
+
+      @media screen and (max-width: 480px) {
+        right: -5px;
+        padding: 10px 15px;
+      }
+
+      @media screen and (max-width: 420px) {
+        width: 280px;
+        padding: 8px 12px;
+        gap: 10px;
+      }
+    }
+  }
+
+  &__reg {
+    color: #272727;
+    text-align: center;
+  }
+
+  &__login {
+    opacity: 0;
+    transition: 0.3s;
+    pointer-events: none;
+
+    &-show {
+      opacity: 1;
+      transition: 0.3s;
+      pointer-events: all;
+    }
+  }
+
+  &__btn > img {
+    @media screen and (max-width: 375px) {
+      width: 35px;
+      height: 35px;
+    }
+  }
+}
+
+.menu {
+  display: none;
+
+  @media screen and (max-width: 790px) {
+    display: block;
+  }
+}

@@ -1,0 +1,24 @@
+.profile {
+  &__favorites {
+    padding-bottom: 35px;
+    h1 {
+      font-size: 32px;
+      font-weight: 600;
+      padding-bottom: 35px;
+    }
+
+    & > ul {
+      display: grid;
+      gap: 20px 25px;
+      grid-template-columns: repeat(2, 1fr);
+
+      @media screen and (max-width: 850px) {
+        gap: 10px 15px;
+      }
+
+      @media screen and (max-width: 480px) {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+  }
+}

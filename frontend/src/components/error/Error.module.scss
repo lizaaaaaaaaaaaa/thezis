@@ -1,0 +1,33 @@
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 25px;
+  padding-top: 100px;
+  margin: 0 auto;
+
+  & > h1 {
+    font-size: 48px;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  &__link {
+    display: block;
+    width: 280px;
+    padding: 12px 0;
+    color: #fff;
+    background-color: #84aaea;
+    border: 1px solid #84aaea;
+    transition: 0.3s;
+    text-align: center;
+    margin-top: 50px;
+
+    &:hover {
+      background-color: #fff;
+      color: #84aaea;
+      transition: 0.3s;
+    }
+  }
+}

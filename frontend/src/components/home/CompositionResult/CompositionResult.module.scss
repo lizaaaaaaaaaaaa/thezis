@@ -1,0 +1,79 @@
+.result {
+  &__inner {
+    margin-top: 50px;
+    margin-bottom: 60px;
+
+    @media screen and (max-width: 768px) {
+      margin-top: 35px;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__warning {
+    font-size: 22px;
+    padding-bottom: 35px;
+    color: #dc143c;
+
+    @media screen and (max-width: 480px) {
+      font-size: 20px;
+      padding-bottom: 20px;
+    }
+
+    @media screen and (max-width: 375px) {
+      font-size: 18px;
+    }
+  }
+
+  &__notFound {
+    & > span:first-of-type {
+      font-size: 20px;
+      font-weight: 600;
+
+      @media screen and (max-width: 480px) {
+        font-size: 18px;
+      }
+    }
+  }
+
+  &__list {
+    border-bottom: 2px solid #84aaea;
+    & > li {
+      border-top: 1px solid #84aaea;
+
+      &:first-child {
+        border-top: none;
+      }
+    }
+  }
+
+  &__advice {
+    font-size: 22px;
+    font-style: italic;
+    color: #84aaea;
+    max-width: 560px;
+    padding-bottom: 45px;
+    margin: 0 auto;
+
+    @media screen and (max-width: 768px) {
+      font-size: 20px;
+    }
+
+    @media screen and (max-width: 375px) {
+      font-size: 18px;
+    }
+
+    &::before {
+      content: url("../../../assets/svg/quotes/before.svg");
+      margin-right: 15px;
+    }
+
+    &::after {
+      content: url("../../../assets/svg/quotes/after.svg");
+      margin-left: 15px;
+    }
+  }
+
+  &__table {
+    margin-bottom: 35px;
+  }
+}

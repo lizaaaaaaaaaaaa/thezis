@@ -1,0 +1,25 @@
+.product__favorite {
+  font-size: 16px;
+  padding-bottom: 15px;
+  height: 36px;
+
+  &-is {
+    color: #dc143c;
+
+    &::before {
+      content: url("../../../assets/svg/remove.svg");
+      padding-right: 5px;
+      vertical-align: middle;
+    }
+  }
+
+  &-not {
+    color: #00fa9a;
+
+    &::before {
+      content: url("../../../assets/svg/favorite.svg");
+      padding-right: 5px;
+      vertical-align: middle;
+    }
+  }
+}

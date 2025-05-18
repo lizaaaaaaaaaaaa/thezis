@@ -1,0 +1,60 @@
+.profile {
+  &__sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 15px 0;
+
+    & > button {
+      width: 280px;
+      padding: 12px 16px;
+      background-color: #84aaea;
+      color: #fff;
+      font-weight: 500;
+      border: 1px solid #84aaea;
+      transition: 0.3s;
+
+      &:hover {
+        color: #84aaea;
+        background-color: #fff;
+        transition: 0.3s;
+      }
+
+      @media screen and (max-width: 600px) {
+        width: 100%;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      display: grid;
+      gap: 15px;
+      grid-template-columns: repeat(2, 280px);
+    }
+
+    @media screen and (max-width: 600px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (max-width: 480px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    & > .profile__btn-exit {
+      color: #84aaea;
+      background-color: transparent;
+      border: none;
+      display: flex;
+      align-items: center;
+      gap: 0 5px;
+      margin-top: 15px;
+
+      @media screen and (max-width: 768px) {
+        margin-top: 0;
+      }
+    }
+
+    .active {
+      color: #84aaea;
+      background-color: #fff;
+    }
+  }
+}

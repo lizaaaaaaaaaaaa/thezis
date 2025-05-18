@@ -1,0 +1,35 @@
+.result {
+  &__header {
+    display: flex;
+    width: 100%;
+    background-color: #84aaea;
+    color: #fff;
+    font-weight: 500;
+    border-radius: 5px;
+    padding: 10px 0;
+
+    & > div {
+      @media screen and (max-width: 600px) {
+        word-wrap: break-word;
+        text-align: center;
+      }
+    }
+
+    & > div:nth-child(1) {
+      width: 45%;
+      padding: 0 15px;
+      border-right: 1px solid #ffffff6f;
+    }
+
+    & > div:nth-child(2) {
+      width: 24.3%;
+      border-right: 1px solid #ffffff6f;
+      padding: 0 15px;
+    }
+
+    & > div:nth-child(3) {
+      padding: 0 15px;
+      width: 25%;
+    }
+  }
+}

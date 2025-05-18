@@ -1,0 +1,86 @@
+.header {
+  &__form {
+    display: grid;
+    gap: 10px 0;
+    position: relative;
+
+    input {
+      padding: 6px 10px;
+      width: 100%;
+      border: 1px solid #84aaea;
+
+      &::placeholder {
+        font-style: italic;
+      }
+
+      &:disabled {
+        opacity: 0.6;
+      }
+    }
+
+    & > button {
+      width: 100%;
+      padding: 10px 0;
+      background-color: #84aaea;
+      border: 1px solid #84aaea;
+      font-weight: 500;
+      transition: 0.3s;
+      margin-top: 25px;
+
+      @media screen and (max-width: 480px) {
+        margin-top: 10px;
+      }
+
+      &:hover {
+        background-color: #fff;
+        color: #84aaea;
+        transition: 0.3s;
+      }
+
+      &:disabled {
+        opacity: 0.6;
+
+        &:hover {
+          color: #fff;
+          background-color: #84aaea;
+        }
+      }
+    }
+  }
+
+  &__password {
+    position: relative;
+
+    & > button {
+      position: absolute;
+      right: 1px;
+      top: 1px;
+      padding: 5px 9px;
+      z-index: 2;
+      z-index: 6;
+
+      img {
+        vertical-align: bottom;
+      }
+
+      &:disabled {
+        opacity: 0.6;
+      }
+    }
+  }
+
+  &__error {
+    position: absolute;
+    bottom: -20px;
+    color: #dc143c;
+    font-size: 12px;
+  }
+
+  &__loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+  }
+}

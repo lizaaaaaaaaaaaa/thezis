@@ -1,0 +1,45 @@
+.products {
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Для прижимання кнопки до низу */
+    height: 100%; /* Додаємо висоту, щоб елементи займали всю доступну висоту */
+    max-width: 100%; /* Контейнер займає всю ширину */
+    border: 1px solid #ccc;
+    padding: 20px;
+
+    & > img {
+      width: 100%;
+      display: block;
+      padding-bottom: 10px;
+    }
+
+    & > h3 {
+      font-weight: 600;
+      padding-bottom: 5px;
+    }
+
+    & > p {
+      padding-bottom: 25px;
+      flex-grow: 1; /* Це дозволить розтягнути текст до потрібної висоти */
+    }
+  }
+
+  &__link {
+    width: 100%;
+    display: block;
+    text-align: center;
+    background-color: #84aaea;
+    border: 2px solid #84aaea;
+    color: #fff;
+    font-weight: 500;
+    padding: 12px 0;
+    transition: 0.3s;
+
+    &:hover {
+      color: #84aaea;
+      background-color: transparent;
+      transition: 0.3s;
+    }
+  }
+}

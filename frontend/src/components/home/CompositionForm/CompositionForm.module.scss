@@ -1,0 +1,68 @@
+.form {
+  margin: 45px auto 0;
+  width: 650px;
+  position: relative;
+
+  @media screen and (max-width: 790px) {
+    width: 100%;
+  }
+
+  textarea {
+    width: 100%;
+    resize: none;
+    height: 250px;
+    border: 1px solid #84aaea;
+    padding: 20px 15px;
+    font-size: 16px;
+
+    @media screen and (max-width: 480px) {
+      padding: 10px 8px;
+      font-size: 14px;
+
+      &::-webkit-scrollbar {
+        width: 3px;
+      }
+    }
+
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #fff;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #84aaea;
+    }
+  }
+
+  & > div:first-of-type {
+    margin-top: 15px;
+    display: flex;
+    gap: 0 20px;
+    justify-content: center;
+  }
+
+  button {
+    display: block;
+    color: #fff;
+    font-weight: 500;
+    background-color: #84aaea;
+    padding: 12px 16px;
+    transition: 0.3s;
+    width: 220px;
+
+    &:hover {
+      transform: scale(1.1);
+      transition: 0.3s;
+    }
+  }
+
+  .success {
+    position: absolute;
+    bottom: -30px;
+    color: #00fa9a;
+    font-size: 14px;
+  }
+}
