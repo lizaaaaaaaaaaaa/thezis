@@ -4,7 +4,15 @@ const admin = require("firebase-admin");
 const bcrypt = require("bcrypt");
 require("dotenv").config();
 
-const serviceAccount = JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS_CONTENT);
+let serviceAccount;
+
+if (process.env.GOOGLE_APPLICATION_CREDENTIALS_CONTENT) {
+  serviceAccount = JSON.parse(
+    process.env.GOOGLE_APPLICATION_CREDENTIALS_CONTENT
+  );
+} else {
+  serviceAccount = require(process.env.GOOGLE_APPLICATION_CREDENTIALS);
+}
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
