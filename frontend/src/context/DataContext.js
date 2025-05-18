@@ -4,8 +4,13 @@ const DataContext = createContext();
 
 export const useData = () => useContext(DataContext);
 
-const fixBrokenLetters = (str = "") =>
-  str
+// === фіксація лише "зламаних" слів ===
+
+const fixWordIfCyrillicLike = (word = "") => {
+  const onlyLatin = /^[a-zA-Z0-9\.\-]+$/;
+  if (onlyLatin.test(word)) return word;
+
+  return word
     .replace(/a/g, "а")
     .replace(/e/g, "е")
     .replace(/o/g, "о")
@@ -21,8 +26,15 @@ const fixBrokenLetters = (str = "") =>
     .replace(/C/g, "С")
     .replace(/X/g, "Х")
     .replace(/Y/g, "У")
-    .replace(/I/g, "І")
-    .replace(/\u00AD/g, "")
+    .replace(/I/g, "І");
+};
+
+const fixBrokenLettersSmart = (str = "") =>
+  str
+    .split(" ")
+    .map(fixWordIfCyrillicLike)
+    .join(" ")
+    .replace(/\u00AD/g, "") // приховані символи
     .trim();
 
 export const DataProvider = ({ children }) => {
@@ -49,15 +61,15 @@ export const DataProvider = ({ children }) => {
       const res = await fetch(
         `${process.env.REACT_APP_API_BASE_URL}/api/products`
       );
-      
       const data = await res.json();
+
       const fixed = data.map((p) => ({
         ...p,
-        name: fixBrokenLetters(p.name),
-        description: p.description?.map?.(fixBrokenLetters),
+        name: fixBrokenLettersSmart(p.name),
+        description: p.description?.map?.(fixBrokenLettersSmart),
       }));
-      setProducts(fixed);
 
+      setProducts(fixed);
       setIsProductsLoaded(true);
     } catch (e) {
       console.error("Помилка при завантаженні продуктів", e);
