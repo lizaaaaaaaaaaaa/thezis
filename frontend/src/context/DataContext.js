@@ -4,6 +4,27 @@ const DataContext = createContext();
 
 export const useData = () => useContext(DataContext);
 
+const fixBrokenLetters = (str = "") =>
+  str
+    .replace(/a/g, "а")
+    .replace(/e/g, "е")
+    .replace(/o/g, "о")
+    .replace(/p/g, "р")
+    .replace(/c/g, "с")
+    .replace(/x/g, "х")
+    .replace(/y/g, "у")
+    .replace(/i/g, "і")
+    .replace(/A/g, "А")
+    .replace(/E/g, "Е")
+    .replace(/O/g, "О")
+    .replace(/P/g, "Р")
+    .replace(/C/g, "С")
+    .replace(/X/g, "Х")
+    .replace(/Y/g, "У")
+    .replace(/I/g, "І")
+    .replace(/\u00AD/g, "")
+    .trim();
+
 export const DataProvider = ({ children }) => {
   const [ingredients, setIngredients] = useState([]);
   const [products, setProducts] = useState([]);
@@ -28,8 +49,15 @@ export const DataProvider = ({ children }) => {
       const res = await fetch(
         `${process.env.REACT_APP_API_BASE_URL}/api/products`
       );
+      
       const data = await res.json();
-      setProducts(data);
+      const fixed = data.map((p) => ({
+        ...p,
+        name: fixBrokenLetters(p.name),
+        description: p.description?.map?.(fixBrokenLetters),
+      }));
+      setProducts(fixed);
+
       setIsProductsLoaded(true);
     } catch (e) {
       console.error("Помилка при завантаженні продуктів", e);
