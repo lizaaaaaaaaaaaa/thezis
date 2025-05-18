@@ -7,7 +7,7 @@ export const useData = () => useContext(DataContext);
 // === фіксація лише "зламаних" слів ===
 
 const fixWordIfCyrillicLike = (word = "") => {
-  const onlyLatin = /^[a-zA-Z0-9\.\-]+$/;
+    const onlyLatin = /^[a-zA-Z0-9.-]+$/;
   if (onlyLatin.test(word)) return word;
 
   return word
