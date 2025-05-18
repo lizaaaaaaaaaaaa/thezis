@@ -2,8 +2,9 @@ const express = require("express");
 const cors = require("cors");
 const admin = require("firebase-admin");
 const bcrypt = require("bcrypt");
+require("dotenv").config();
 
-const serviceAccount = require("./serviceAccount.json");
+const serviceAccount = require(process.env.GOOGLE_APPLICATION_CREDENTIALS);
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
