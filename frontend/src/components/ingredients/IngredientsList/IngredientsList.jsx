@@ -24,7 +24,7 @@ const IngredientsList = () => {
 
     let filtered = [...ingredients];
 
-    if (selectedFunc && selectedFunc !== "Всі інгрідієнти") {
+    if (selectedFunc && selectedFunc !== "Всі інгредієнти") {
       filtered = filtered.filter((ingredient) =>
         ingredient.function?.includes(selectedFunc)
       );
