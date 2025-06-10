@@ -51,7 +51,7 @@ const IngredientsList = () => {
         applyFilters();
       }
     }
-  }, [applyFilters, isIngredientsLoaded, ingredients, navigate]);
+  }, [isIngredientsLoaded, ingredients, navigate, applyFilters]);
 
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
@@ -81,34 +81,38 @@ const IngredientsList = () => {
 
   return (
     <section className={`container ${styles.ingredients}`}>
-      {!isIngredientsLoaded && <Loader />}
+      {!isIngredientsLoaded ? (
+        <Loader />
+      ) : (
+        <>
+          <FilterCheckbox
+            lowComedogenic={lowComedogenic}
+            setLowComedogenic={setLowComedogenic}
+            noAllergen={noAllergen}
+            setNoAllergen={setNoAllergen}
+          />
 
-      <FilterCheckbox
-        lowComedogenic={lowComedogenic}
-        setLowComedogenic={setLowComedogenic}
-        noAllergen={noAllergen}
-        setNoAllergen={setNoAllergen}
-      />
+          <ul className={styles.ingredients__list}>
+            {currentIngredients.length > 0 ? (
+              currentIngredients.map((ingredient, index) => (
+                <IngredientItem
+                  ingredient={ingredient}
+                  key={`${ingredient.name}-${index}`}
+                />
+              ))
+            ) : (
+              <div>Інгредієнти не знайдені</div>
+            )}
+          </ul>
 
-      <ul className={styles.ingredients__list}>
-        {currentIngredients.length > 0 ? (
-          currentIngredients.map((ingredient, index) => (
-            <IngredientItem
-              ingredient={ingredient}
-              key={`${ingredient.name}-${index}`}
-            />
-          ))
-        ) : (
-          <div>Інгредієнти не знайдені</div>
-        )}
-      </ul>
-
-      <Pagination
-        currentPage={currentPage}
-        totalProducts={filteredIngredients.length}
-        productsPerPage={ingredientsPerPage}
-        onPageChange={handlePageChange}
-      />
+          <Pagination
+            currentPage={currentPage}
+            totalProducts={filteredIngredients.length}
+            productsPerPage={ingredientsPerPage}
+            onPageChange={handlePageChange}
+          />
+        </>
+      )}
     </section>
   );
 };
